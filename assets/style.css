@@ -119,7 +119,7 @@ a {
 
 .hero-title h1 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(64px, 11vw, 150px);
+    font-size: clamp(64px, 10vw, 145px);
     font-weight: 800;
     line-height: .82;
     letter-spacing: -7px;
@@ -557,7 +557,7 @@ a {
     }
 
     .hero-title h1 {
-        font-size: 11.5vw;
+        font-size: 10vw;
         letter-spacing: -5px;
     }
 
@@ -614,7 +614,7 @@ a {
     }
 
     .hero-title h1 {
-        font-size: 11vw;
+        font-size: 10vw;
         line-height: .86;
         letter-spacing: -3px;
         overflow-wrap: normal;
