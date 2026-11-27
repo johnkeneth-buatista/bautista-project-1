@@ -18,6 +18,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
 }
 
 body {
@@ -30,6 +31,22 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button,
+a,
+label,
+input,
+.audio {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+label:focus-visible,
+input:focus-visible,
+.music-player audio:focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 4px;
 }
 
 ::selection {
@@ -382,9 +399,10 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
     width: 82%;
     height: 82%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 24%;
     border: 1px solid var(--border);
     background: transparent;
+    filter: saturate(.9) contrast(1.02);
 }
 
 .image-placeholder > span:first-child {
@@ -452,6 +470,7 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     filter: saturate(.72) contrast(1.05);
     transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .35s;
 }
@@ -817,6 +836,58 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
 @keyframes record-pulse {
     0% { transform: scale(.86); opacity: .7; }
     75%, 100% { transform: scale(1.28); opacity: 0; }
+}
+
+/* FINAL REFINEMENTS */
+
+.navbar,
+.music-player,
+.theme-dock {
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.section-label,
+.project-details,
+.skill,
+.about-info,
+.footer {
+    position: relative;
+}
+
+.project,
+.skill,
+.about-text,
+.contact-bottom {
+    animation: section-enter .55s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.project:nth-child(2),
+.skill:nth-child(2n) {
+    animation-delay: .05s;
+}
+
+.project:nth-child(3),
+.skill:nth-child(3n) {
+    animation-delay: .1s;
+}
+
+@keyframes section-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .project,
+    .skill,
+    .about-text,
+    .contact-bottom,
+    .music-player::before,
+    .music-player::after {
+        animation: none;
+        transition: none;
+    }
 }
 
 /* FOOTER */
