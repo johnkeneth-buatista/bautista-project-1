@@ -765,6 +765,204 @@ body:has(#theme-brown:checked) .skill {
     border-radius: 6px;
 }
 
+/* 01 — NEON: oversized, left-aligned poster */
+body:has(#theme-neon:checked) .hero {
+    min-height: 87vh;
+}
+
+body:has(#theme-neon:checked) .hero-title {
+    max-width: 1120px;
+}
+
+body:has(#theme-neon:checked) .hero-title h1 {
+    text-transform: uppercase;
+}
+
+/* 02 — PAPER: centered editorial magazine */
+body:has(#theme-paper:checked) .navbar {
+    height: 68px;
+}
+
+body:has(#theme-paper:checked) .hero {
+    min-height: 74vh;
+    text-align: center;
+}
+
+body:has(#theme-paper:checked) .hero-title {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+body:has(#theme-paper:checked) .hero-title h1 {
+    font-size: clamp(58px, 8vw, 110px);
+    line-height: .88;
+}
+
+body:has(#theme-paper:checked) .hero-bottom {
+    width: 100%;
+}
+
+body:has(#theme-paper:checked) .about-content {
+    grid-template-columns: .7fr 1.3fr;
+    gap: 10%;
+}
+
+body:has(#theme-paper:checked) .project-list {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+body:has(#theme-paper:checked) .project:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
+}
+
+body:has(#theme-paper:checked) .project-preview {
+    height: 220px;
+}
+
+body:has(#theme-paper:checked) .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 03 — TERMINAL: compact technical dashboard */
+body:has(#theme-terminal:checked) .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 58px;
+    background: var(--bg);
+}
+
+body:has(#theme-terminal:checked) .hero {
+    min-height: 70vh;
+    border-inline: 1px solid var(--border);
+}
+
+body:has(#theme-terminal:checked) .hero-title h1 {
+    font-size: clamp(58px, 9vw, 120px);
+    line-height: .9;
+}
+
+body:has(#theme-terminal:checked) .section-label {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+body:has(#theme-terminal:checked) .about-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+body:has(#theme-terminal:checked) .about-info {
+    grid-template-columns: 1fr;
+}
+
+body:has(#theme-terminal:checked) .project-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+body:has(#theme-terminal:checked) .project:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
+}
+
+body:has(#theme-terminal:checked) .project-preview {
+    height: 210px;
+}
+
+body:has(#theme-terminal:checked) .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+body:has(#theme-terminal:checked) .skill {
+    border: 1px solid var(--border);
+}
+
+/* 04 — OCEAN: asymmetric split with a visual field */
+body:has(#theme-ocean:checked) .navbar {
+    height: 72px;
+}
+
+body:has(#theme-ocean:checked) .hero {
+    min-height: 78vh;
+}
+
+body:has(#theme-ocean:checked) .hero-title {
+    max-width: 62%;
+}
+
+body:has(#theme-ocean:checked) .hero-title h1 {
+    font-size: clamp(58px, 7.8vw, 104px);
+}
+
+body:has(#theme-ocean:checked) .about-content {
+    grid-template-columns: 1.2fr .8fr;
+}
+
+body:has(#theme-ocean:checked) .project-list {
+    grid-template-columns: 1.4fr .6fr;
+}
+
+body:has(#theme-ocean:checked) .project:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+body:has(#theme-ocean:checked) .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* 05 — BROWN: dense portfolio dashboard */
+body:has(#theme-brown:checked) .navbar {
+    height: 64px;
+    border-top: 5px solid var(--lime);
+}
+
+body:has(#theme-brown:checked) .hero {
+    min-height: 68vh;
+}
+
+body:has(#theme-brown:checked) .hero-title {
+    max-width: 820px;
+}
+
+body:has(#theme-brown:checked) .hero-title h1 {
+    font-size: clamp(58px, 8.5vw, 118px);
+    line-height: .9;
+}
+
+body:has(#theme-brown:checked) .about-content {
+    grid-template-columns: .55fr 1.45fr;
+    gap: 4%;
+}
+
+body:has(#theme-brown:checked) .about-image,
+body:has(#theme-brown:checked) .image-placeholder {
+    min-height: 380px;
+}
+
+body:has(#theme-brown:checked) .project-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+body:has(#theme-brown:checked) .project:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+body:has(#theme-brown:checked) .project-preview {
+    height: 210px;
+}
+
+body:has(#theme-brown:checked) .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+body:has(#theme-brown:checked) .skill {
+    min-height: 150px;
+}
+
 @media (max-width: 600px) {
 
     .navbar {
@@ -888,6 +1086,58 @@ body:has(#theme-brown:checked) .skill {
         flex-wrap: wrap;
         gap: 15px;
         font-size: 8px;
+    }
+
+    body:has(#theme-paper:checked) .project-list,
+    body:has(#theme-terminal:checked) .project-list,
+    body:has(#theme-ocean:checked) .project-list,
+    body:has(#theme-brown:checked) .project-list,
+    body:has(#theme-terminal:checked) .skills-grid,
+    body:has(#theme-brown:checked) .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body:has(#theme-paper:checked) .about-content,
+    body:has(#theme-terminal:checked) .about-content,
+    body:has(#theme-ocean:checked) .about-content,
+    body:has(#theme-brown:checked) .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    body:has(#theme-ocean:checked) .hero-title {
+        max-width: 100%;
+    }
+
+    body:has(#theme-ocean:checked) .hero::after {
+        display: none;
+    }
+
+    body:has(#theme-terminal:checked) .hero {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        border-inline: none;
+        overflow: hidden;
+    }
+
+    body:has(#theme-terminal:checked) .hero-title,
+    body:has(#theme-terminal:checked) .hero-top,
+    body:has(#theme-terminal:checked) .hero-bottom {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body:has(#theme-terminal:checked) .hero-title h1 {
+        max-width: 100%;
+        font-size: 9.5vw;
+        line-height: .9;
+        overflow-wrap: anywhere;
+    }
+
+    body:has(#theme-brown:checked) .skills-grid,
+    body:has(#theme-ocean:checked) .skills-grid,
+    body:has(#theme-paper:checked) .skills-grid {
+        grid-template-columns: 1fr;
     }
 
     .theme-picker {
