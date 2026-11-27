@@ -15,6 +15,10 @@
     <input class="theme-radio" type="radio" name="theme" id="theme-ocean">
     <input class="theme-radio" type="radio" name="theme" id="theme-brown">
 
+    <input class="palette-radio" type="radio" name="palette" id="palette-signature" checked>
+    <input class="palette-radio" type="radio" name="palette" id="palette-light">
+    <input class="palette-radio" type="radio" name="palette" id="palette-cool">
+
     <aside class="theme-picker" aria-label="Choose a layout theme">
         <span>THEMES</span>
         <label for="theme-neon" title="Neon">01</label>
@@ -22,6 +26,13 @@
         <label for="theme-terminal" title="Terminal">03</label>
         <label for="theme-ocean" title="Ocean">04</label>
         <label for="theme-brown" title="Brown">05</label>
+    </aside>
+
+    <aside class="palette-picker" aria-label="Choose a color palette">
+        <span>COLOR</span>
+        <label class="palette-label signature" for="palette-signature" title="Signature">01</label>
+        <label class="palette-label light" for="palette-light" title="Light">02</label>
+        <label class="palette-label cool" for="palette-cool" title="Cool">03</label>
     </aside>
 
     <header class="navbar">
