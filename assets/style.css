@@ -356,6 +356,26 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
     opacity: .3;
 }
 
+.profile-fallback {
+    position: absolute;
+    z-index: 0;
+    width: 82%;
+    height: 82%;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--lime) 12%, var(--surface)), var(--surface));
+}
+
+.profile-fallback span {
+    color: var(--lime);
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(64px, 10vw, 140px);
+    font-weight: 800;
+    letter-spacing: -8px;
+}
+
 .image-placeholder img {
     position: relative;
     z-index: 1;
@@ -364,6 +384,7 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
     object-fit: cover;
     object-position: center 20%;
     border: 1px solid var(--border);
+    background: transparent;
 }
 
 .image-placeholder > span:first-child {
@@ -426,6 +447,27 @@ body:has(#palette-cool:checked) .palette-label.cool::before {
 }
 
 /* PROJECTS */
+
+.project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.72) contrast(1.05);
+    transition: transform .6s cubic-bezier(.2,.8,.2,1), filter .35s;
+}
+
+.project-preview > span {
+    z-index: 3;
+    color: #fff;
+    padding: 7px 9px;
+    background: rgba(12, 13, 11, .72);
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.project:hover .project-preview img {
+    transform: scale(1.04);
+    filter: saturate(.95) contrast(1.08);
+}
 
 .projects-heading {
     display: flex;
@@ -1080,27 +1122,58 @@ body:has(#theme-ocean:checked) .navbar {
 
 body:has(#theme-ocean:checked) .hero {
     min-height: 78vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+}
+
+body:has(#theme-ocean:checked) .hero-top,
+body:has(#theme-ocean:checked) .hero-bottom {
+    grid-column: 1 / -1;
 }
 
 body:has(#theme-ocean:checked) .hero-title {
-    max-width: 62%;
+    max-width: 760px;
+    align-self: center;
 }
 
 body:has(#theme-ocean:checked) .hero-title h1 {
-    font-size: clamp(58px, 7.8vw, 104px);
+    font-size: clamp(58px, 7.2vw, 98px);
+}
+
+body:has(#theme-ocean:checked) .hero::after {
+    grid-column: 2;
+    grid-row: 2;
+    right: 5%;
+}
+
+body:has(#theme-ocean:checked) .hero-decoration {
+    right: 1.5%;
 }
 
 body:has(#theme-ocean:checked) .about-content {
-    grid-template-columns: 1.2fr .8fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 6%;
+}
+
+body:has(#theme-ocean:checked) .about-image,
+body:has(#theme-ocean:checked) .image-placeholder {
+    min-height: 470px;
 }
 
 body:has(#theme-ocean:checked) .project-list {
-    grid-template-columns: 1.4fr .6fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
 }
 
 body:has(#theme-ocean:checked) .project:nth-child(3) {
     grid-column: 1 / -1;
-    width: 100%;
+    width: 62%;
+}
+
+body:has(#theme-ocean:checked) .project-preview {
+    height: 260px;
 }
 
 body:has(#theme-ocean:checked) .skills-grid {
@@ -1612,9 +1685,39 @@ body:has(#theme-brown:checked) .project:hover .project-preview {
     body:has(#theme-ocean:checked) .hero {
         width: 100%;
         max-width: 100%;
+        min-height: 82vh;
         min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
         overflow: hidden;
-        background: var(--bg);
+        text-align: center;
+        background:
+            radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--lime) 12%, transparent) 0 120px, transparent 121px),
+            var(--bg);
+    }
+
+    body:has(#theme-ocean:checked) .hero-top {
+        width: 100%;
+    }
+
+    body:has(#theme-ocean:checked) .hero-bottom {
+        width: 100%;
+        align-items: flex-end;
+    }
+
+    body:has(#theme-ocean:checked) .project-list {
+        grid-template-columns: 1fr;
+    }
+
+    body:has(#theme-ocean:checked) .project:nth-child(3) {
+        width: 100%;
+    }
+
+    body:has(#theme-ocean:checked) .about-image,
+    body:has(#theme-ocean:checked) .image-placeholder {
+        min-height: 280px;
     }
 
     body:has(#theme-ocean:checked) .hero-title {
@@ -1624,9 +1727,38 @@ body:has(#theme-brown:checked) .project:hover .project-preview {
 
     body:has(#theme-ocean:checked) .hero-title h1 {
         max-width: 100%;
-        font-size: 9.5vw;
-        line-height: .9;
+        font-size: 12vw;
+        line-height: .88;
+        letter-spacing: -4px;
         overflow-wrap: anywhere;
+    }
+
+    body:has(#theme-ocean:checked) .hero-description {
+        max-width: 210px;
+        text-align: left;
+    }
+
+    body:has(#theme-ocean:checked) .section {
+        padding-top: 76px;
+        padding-bottom: 76px;
+    }
+
+    body:has(#theme-ocean:checked) .section-label {
+        margin-bottom: 38px;
+    }
+
+    body:has(#theme-ocean:checked) .about-content,
+    body:has(#theme-ocean:checked) .project-list,
+    body:has(#theme-ocean:checked) .skills-grid {
+        gap: 28px;
+    }
+
+    body:has(#theme-ocean:checked) .project-preview {
+        height: 240px;
+    }
+
+    body:has(#theme-ocean:checked) .project:nth-child(3) {
+        width: 100%;
     }
 
     body:has(#theme-ocean:checked) .hero::after {
